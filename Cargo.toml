@@ -1,0 +1,16 @@
+[package]
+name = "switrs-courier"
+version = "0.1.0"
+edition = "2021"
+authors = ["The Radical Bike Lobby"]
+description = "CLI for working with the California I-SWITRS system to retrieve the most recent SWITRS-DB"
+readme = "README.md"
+
+keywords = ["telraam"]
+homepage = "https://github.com/radical-bike-lobby"
+repository = "https://github.com/radical-bike-lobby/switrs-courier"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
