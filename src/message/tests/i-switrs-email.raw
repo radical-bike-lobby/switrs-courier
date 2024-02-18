@@ -1,0 +1,200 @@
+From SWITRS@chp.ca.gov Sat Dec 16 20:41:51 2023
+Return-path: <SWITRS@chp.ca.gov>
+Original-recipient: rfc822;radical.bike.lobby+switrs@gmail.com
+Received: from qs51p00im-qukt01061301.gmail.com by p124-mailgateway-smtp-79ccbd8457-jk7k5 (mailgateway 2403B92)
+	with SMTP id 2628e6e8-b9ec-4bac-b980-322d29d5b859 
+	for <radical.bike.lobby+switrs@gmail.com>; Sat, 16 Dec 2023 20:41:51 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 2628e6e8-b9ec-4bac-b980-322d29d5b859
+Received: from GCC02-DM3-obe.outbound.protection.outlook.com (mail-dm3gcc02on2072.outbound.protection.outlook.com [40.107.91.72])
+	by qs51p00im-qukt01061301.gmail.com (Postfix) with ESMTPS id EDFE2F00149
+	for <radical.bike.lobby+switrs@gmail.com>; Sat, 16 Dec 2023 20:41:48 +0000 (UTC)
+X-ICL-SCORE: 3.333033230043
+X-ICL-INFO: GAtbVUseBVFGSVVESgMGUkFKRFcUWUIPAApbVRYSFhEAREQZF15TQFUcAkpaY2ErISs1NxtYRkwW
+ GEgQF0YUQhMdW1UbWEZMFhhIEBdGFEIGEBZKWgQGTERJUVlBARhVR1tGHx1cWV9XPiU0SAIbJjhK
+ SxgaVRgNAA0EGA1eUkwFCwkDHVNCCxoXSBgNRFoNGhJIFBddFEIFDRRKWl1XCxlUAhpLV1UBRUsJ
+ GUoAAVBbFhMDGl9DDBFXFgUXRFMBARAJGVZfQxYZFgkcVlNZD1dZAhNFElUKBVcFFlZXWRRXWQse
+ HA0UXkdKX0BBAw9WQFdXRUADB1VFS1FCQQMGUExBX1kyUUADOBgPG1ZxUg8cFw8EDEJXFhoLJj8p
+ AXJPJSNLNihgBVpLW0YFGw0UABAXDBYVWVgEBwAmGhlTGAEaFEQ=
+Authentication-Results: bimi.icloud.com; bimi=none
+X-ARC-Info: policy=fail; arc=pass; id=mx.microsoft.com 1
+Authentication-Results: arc.icloud.com; arc=pass
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=chp.ca.gov
+X-DMARC-Info: pass=pass; dmarc-policy=reject; s=r1; d=r1; pdomain=chp.ca.gov
+X-DMARC-Policy: v=DMARC1;p=reject;fo=1;pct=100;rua=mailto:postmaster@chp.ca.gov;ruf=mailto:postmaster@chp.ca.gov
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (1024-bit key) header.d=chp.ca.gov header.i=@chp.ca.gov header.b=ih/iBoU8
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of SWITRS@chp.ca.gov designates 40.107.91.72 as permitted sender) smtp.mailfrom=SWITRS@chp.ca.gov
+Received-SPF: pass (spf.icloud.com: domain of SWITRS@chp.ca.gov designates 40.107.91.72 as permitted sender) receiver=spf.icloud.com; client-ip=40.107.91.72; helo=GCC02-DM3-obe.outbound.protection.outlook.com; envelope-from=SWITRS@chp.ca.gov
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=O8M+6ZBPQIH32u+SFB2E8yH4q5gHAPSXlZ5JHU09GhPu81e142MouNKJ5c+2DdIY/GGHMTLz5Oya/hGRDAiJsL3zkJORwPsljpo/0oTYq36HN+QLOSqEwov7btOAL9kISpl/VNXFKPCPqOrjFrj3KcsvTuvxjwyUWQbPSpeUmWMRMn1X5GWYdrJmPEWwki2QAuK/8TInLZIB+BIfdSmyimUv35oTAl/zNNvGqhWmc0ImjuoDaJwgo85/XjMNClDrA6otXNr7BTsuO4Ipl7NUztENJD+CDZ3F3RKhfFyhnobIE+tOwcKmTuizzVoiffATkVMpyi9uY/Qnmg+xSUiELA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wIV85XRtTeCfN2J7artBedFHKcp2ebSp+Fl9nC1fx5U=;
+ b=hGscqT7li6rVBrX1GZ8iEZDqyiiayJNxgu6PPSoHsauHjpBqcqLHmTj/asD0MVowBQ8+i5GWf3h2V1qRnHe9gmQc43Bv4vWpdD3sOplO4ZXQ1ppMbwxdc3CvWVda7p8PK40nJeC0vTr4SLH4rsNA0m8I89J4Aa/O80MZE8p6TkumUnIA8wrXqcgB7vrnptvMcQY7iN7DmHxhPiQYnj66nNd9pibUh5ACwoCq6CFhZKRSiocEMC65zExM/sphh2Q44G9AlvnDHPiNsltPm090LXL+7X7HQ6T13HA3pYyoO6+KMxp8cCaL0B/ibtDn8SVgQJo1/A5qKY9rAY2FWa6g8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 52.244.34.141) smtp.rcpttodomain=mac.com smtp.mailfrom=chp.ca.gov; dmarc=pass
+ (p=reject sp=reject pct=100) action=none header.from=chp.ca.gov; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chp.ca.gov;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wIV85XRtTeCfN2J7artBedFHKcp2ebSp+Fl9nC1fx5U=;
+ b=ih/iBoU8ob6ygEaY/nHtIphTegO3wV7o3XAPve8Qz+KJ/x7lfdcJ/Xf5YUXDsVz3XCR77wN6WBmIHPoFCaYrsbByhmLExcoAX4EwTpoAyaACnaKk7pm5cCEXtb7Oy24N+hCl98k6q3FPs9t8RflKQC1nLd+tgQ39ml4n87qBHWU=
+Received: from DM6PR09CA0016.namprd09.prod.outlook.com (2603:10b6:5:160::29)
+ by DS0PR09MB11299.namprd09.prod.outlook.com (2603:10b6:8:16b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7091.36; Sat, 16 Dec
+ 2023 20:41:44 +0000
+Received: from SA2PEPF00002252.namprd09.prod.outlook.com
+ (2a01:111:f403:f90e::1) by DM6PR09CA0016.outlook.office365.com
+ (2603:10b6:5:160::29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7091.34 via Frontend
+ Transport; Sat, 16 Dec 2023 20:41:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 52.244.34.141)
+ smtp.mailfrom=chp.ca.gov; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=chp.ca.gov;
+Received-SPF: Pass (protection.outlook.com: domain of chp.ca.gov designates
+ 52.244.34.141 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.244.34.141; helo=Hybrid.chp.ca.gov; pr=C
+Received: from Hybrid.chp.ca.gov (52.244.34.141) by
+ SA2PEPF00002252.mail.protection.outlook.com (10.167.242.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7113.14 via Frontend Transport; Sat, 16 Dec 2023 20:41:44 +0000
+Received: from CLD-AZ-EXCH1.eprise.ad.chp.ca.gov (172.18.12.36) by
+ CLD-AZ-EXCH1.eprise.ad.chp.ca.gov (172.18.12.36) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Sat, 16 Dec 2023 12:41:43 -0800
+Received: from HQ1D-PZ-APP38 (172.18.4.5) by CLD-AZ-EXCH1.eprise.ad.chp.ca.gov
+ (172.18.12.36) with Microsoft SMTP Server id 15.2.1258.28 via Frontend
+ Transport; Sat, 16 Dec 2023 12:41:43 -0800
+From: <SWITRS@chp.ca.gov>
+To: <radical.bike.lobby+switrs@gmail.com>
+Message-ID: <239793945.12831702759302989.JavaMail.Administrator@HQ1D-PZ-APP38>
+Subject: I-SWITRS Report Request - ID #240014
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_Part_641_2038463099.1702759302989"
+Date: Sat, 16 Dec 2023 12:41:43 -0800
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00002252:EE_|DS0PR09MB11299:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74c588b0-7623-451f-8a0a-08dbfe776a9e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	ZAJpk2bZa0vaJSW+09x4eH4rQ9dJknTDsrTKw/JRw5Dx7d2RsKXfL8QBilaNS61bcWgAlfnZA6YcF7CADZ0iZfpTy8GtEeVo1RsNhz96ULwOdUYXzzVIRDJqp2lIMI5XTcbA/FRYqyJAFoe+lqfFzgJirwlVrRFjKlC4OfNzYer7mtkWLUpcpI+qJNOVjZna7h9EmJLlHAK1zbD9JtzYUiRmwpVkLS6PbqnX8Uugw1ZlJzHyN6mC8hWjjHt9Pzx6tKFxmyUuc5jKJJyXacDaJ9CDS72mtyn6YRSTSG6Jvv2/vreM/pG+3xvO/Dpew+8DKxQFnCmxFHJm9wgNaOsmFFCz8xnNMUrhl/RYwKJ3niWMv7+46mAGYBtjK5Gl6aoy/ZQxywnJeieO5zi2FzctqkmJM6Ot8jXitDq4+yzA0r6M1dK+I7V/0Yj97HQYGYCtOVnwkbGNnaPtGc9jiVAHESDF3HikBHmoqOzEb3Gb1lo63mHF/igeNDD2rtiHdVpWtDYniSt2y1Hy/eAjqFe+MH5iliazmGx7jVh6QfSobDlvzY+VI6cVVM+12PGtdAoew6MW0ieacLKuTTObW8EwZa2rFi7j83r0n4nKgcwd9kEsUxjsTC8W8aOWXRMER+4LmGO78k0uhRz2rYYWwDMBPlKElfYUEiLKAhoke16v33QI4LRHLMXzQX4TyewNMZIVfBwU9mIEBjUjlCqQfvr52sXkVVdf5FYaQkQR6PiW5wRd5AbZndVC0/24nOBSB8dsw5qsi6YWFeLioOwJtU/4DQ==
+X-Forefront-Antispam-Report:
+	CIP:52.244.34.141;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Hybrid.chp.ca.gov;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230031)(4636009)(39830400003)(396003)(136003)(230922051799003)(61400799012)(451199024)(186009)(82310400011)(64100799003)(46966006)(36840700001)(47076005)(83380400001)(426003)(336012)(33716001)(26005)(36860700001)(8676002)(8936002)(5660300002)(41300700001)(2906002)(2876002)(316002)(508600001)(966005)(9686003)(70206006)(6916009)(70586007)(40140700001)(81166007)(356005)(86362001)(82960400001)(40480700001)(55016003)(5008540100009)(36900700001);DIR:OUT;SFP:1101;
+X-OriginatorOrg: chp.ca.gov
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2023 20:41:44.5770
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74c588b0-7623-451f-8a0a-08dbfe776a9e
+X-MS-Exchange-CrossTenant-Id: f1e2e89e-7190-4b0f-9463-d7f5b09db86c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f1e2e89e-7190-4b0f-9463-d7f5b09db86c;Ip=[52.244.34.141];Helo=[Hybrid.chp.ca.gov]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SA2PEPF00002252.namprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR09MB11299
+X-CLX-Shades: None
+X-MANTSH: 1TFkXHBIRCllEF29vRHhNeW0dfEFzEQpZTRdkRURPEQpZSRcacRoQGncGHhJxGBA
+ adwYYGgYaEQpZXhdsbHkRCkNOF2RYSEMeWFIHUm9bQBNyZ35Cc2xPWWdcZ1NmaV5AXntQEQpYX
+ BcZBBoEHxoFGxoEGxwYBBkaBBgSEBseGh8aEQpeWRdJWR1rRREKTVwXGxMTEQpMWhdoQ01raxE
+ KTEYXTWsRCkNaFx4aBBsaHQQTGwQdGBEKQl4XGxEKQlwXGxEKQksXbXB8RwFnR3x7WV4RCkJJF
+ 28FXRpNUGVnTm1pEQpCRRdvH2xpXUFQaXNdYhEKQk4XbwVdGk1QZWdObWkRCkJMF2JBbVJMW2E
+ eAR9iEQpCbBdsSXl9G2BSYkwSQxEKQkAXZ3JeQmYcS39zRl0RCkJYF2JYGmceYGN/fUweEQpCe
+ BdoY0tjRgVEH0hIbhEKTV4XGxEKWlgXGxEKcGcXb2tnUEhtR04cXF0QHhIRCnBoF2ZHfn0SHVl
+ PfR0dEBkaEQpwaBdrenIaBVlTHX8ZcBAZGhEKcGgXaR1hBVNCXGhHRnwQGRoRCnBoF2YYX1IbG
+ kRpa1JkEBkaEQpwaBdnE2NrGWVwZwVCQRAZGhEKcGgXZlNwU2FzcmJrbx4QGRoRCnBoF21iRgV
+ LekdoX3pkEBkaEQpwaBd6U3wYW2cBT1heeBAZGhEKcH8XaxpcTGhJBW0aU2kQBxkaEQpwXxdgQ
+ n9PR2Eee0YSRxAZGhEKcH0XaBl+fHJJfn1nAWAQGRoRCnBDF2MaQxNufnJ5TUNcEB4SEQptfhc
+ bEQpYTRdLEQ==
+X-Proofpoint-ORIG-GUID: Nrbi4rx-xEqj9XMThYFesMvMyLCtjtQz
+X-Proofpoint-GUID: Nrbi4rx-xEqj9XMThYFesMvMyLCtjtQz
+
+------=_Part_641_2038463099.1702759302989
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+I-SWITRS has received and processed your Raw Data Report request for the following criteria:
+
+Report Type:               Raw Data
+Jurisdiction:              ALL
+Reporting Period:          01/01/2010 - 12/01/2023
+Lat/Long:                  Yes
+Header:                    Yes
+
+
+
+ NOTE:  Raw data files are in Comma-Separated Value file format (CSV) and contain large amounts of records (100,000+).  If you have a problem opening the data files with your default spreadsheet application, you can view them with a text editor.
+
+Please click on the following link to download your report:
+
+https://iswitrsreports.chp.ca.gov/reports/4481761401380215189.zip
+
+You have 30-days from the date of this email for file download.  Adobe PDF reports will require the latest version of Adobe Acrobat Reader to view.  Raw data files are zipped and will require an extraction utility to open and view its contents.  If you need assistance, please refer to the I-SWITRS online help.  Should you have data errors or other issues with the provided reports, please contact I-SWITRS customer support.  Thank you for your continuing efforts to improve roadway safety.
+
+If you have questions regarding this, please contact I-SWITRS customer support.  Thank you for your continuing efforts to improve roadway safety.
+
+California Highway Patrol
+Support Services Section
+iswitrs@chp.ca.gov
+(916) 843-4230
+
+------=_Part_641_2038463099.1702759302989--
+
+From SWITRS@chp.ca.gov Sat Dec 16 20:41:43 2023
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.400.31\))
+Subject: I-SWITRS Report Request - ID #240014
+X-Universally-Unique-Identifier: 117697A3-7650-40DB-B703-77AA2A1795AA
+From: <SWITRS@chp.ca.gov>
+Date: Sat, 16 Dec 2023 12:41:43 -0800
+Content-Transfer-Encoding: quoted-printable
+Resent-Date: Sat, 17 Feb 2024 13:50:01 -0800
+Resent-To: radical.bike.lobby+switrs@gmail.com
+Message-Id: <239793945.12831702759302989.JavaMail.Administrator@HQ1D-PZ-APP38>
+To: <radical.bike.lobby+switrs@gmail.com>
+
+I-SWITRS has received and processed your Raw Data Report request for the =
+following criteria:
+
+Report Type:               Raw Data
+Jurisdiction:              ALL
+Reporting Period:          01/01/2010 - 12/01/2023
+Lat/Long:                  Yes
+Header:                    Yes
+
+
+
+NOTE:  Raw data files are in Comma-Separated Value file format (CSV) and =
+contain large amounts of records (100,000+).  If you have a problem =
+opening the data files with your default spreadsheet application, you =
+can view them with a text editor.
+
+Please click on the following link to download your report:
+
+https://iswitrsreports.chp.ca.gov/reports/4481761401380215189.zip
+
+You have 30-days from the date of this email for file download.  Adobe =
+PDF reports will require the latest version of Adobe Acrobat Reader to =
+view.  Raw data files are zipped and will require an extraction utility =
+to open and view its contents.  If you need assistance, please refer to =
+the I-SWITRS online help.  Should you have data errors or other issues =
+with the provided reports, please contact I-SWITRS customer support.  =
+Thank you for your continuing efforts to improve roadway safety.
+
+If you have questions regarding this, please contact I-SWITRS customer =
+support.  Thank you for your continuing efforts to improve roadway =
+safety.
+
+California Highway Patrol
+Support Services Section
+iswitrs@chp.ca.gov
+(916) 843-4230
+
