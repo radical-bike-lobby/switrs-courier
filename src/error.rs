@@ -9,4 +9,7 @@ pub enum Error {
     /// An error occured on the request
     #[error("parse_error:{0}")]
     BadEmail(#[from] MailParseError),
+    /// No data was found in the email message
+    #[error("no data found")]
+    NoDataFound(),
 }
