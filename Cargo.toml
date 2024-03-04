@@ -19,17 +19,16 @@ name = "switrs_courier"
 [[bin]]
 name = "switrs-courier"
 path = "src/main.rs"
-required-features = ["clap"]
 
 [dependencies]
-clap = { version = "4.4.11", features = [
-    "cargo",
-    "derive",
-    "env",
-], optional = true }
+anyhow = "1.0.80"
+clap = { version = "4.4.11", features = ["cargo", "derive", "env"] }
+gcp_auth = "0.10.0"
+google-gmail1 = "5.0.3"
 humantime = "2.1.0"
 humantime-serde = "1.1.1"
 mailparse = "0.14.1"
+oauth2 = { version = "4.4.2", features = ["reqwest"] }
 regex = "1.10.3"
 reqwest = { version = "0.11", features = [
     "blocking",
@@ -40,8 +39,11 @@ reqwest = { version = "0.11", features = [
     "native-tls",
 ] }
 serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 time = "0.3"
 thiserror = "1.0.50"
+tokio = { version = "1.36.0", features = ["macros", "rt", "time"] }
+url = "=2.5.0"
 
 [lints.rust]
 unsafe_code = "forbid"
