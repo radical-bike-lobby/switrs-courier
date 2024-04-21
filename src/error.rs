@@ -42,4 +42,8 @@ pub enum Error {
             oauth2::StandardErrorResponse<oauth2::basic::BasicErrorResponseType>,
         >,
     ),
+
+    /// Reqwest, Http, errors
+    #[error("http error: {0}")]
+    Http(#[from] reqwest::Error),
 }

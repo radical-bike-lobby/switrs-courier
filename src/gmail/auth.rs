@@ -201,18 +201,18 @@ pub(crate) async fn break_dance(
         .expect("Failed to revoke token");
 }
 
-pub(crate) async fn service_dance() -> Result<gcp_auth::Token, Error> {
-    use gcp_auth::{AuthenticationManager, CustomServiceAccount};
+// pub(crate) async fn service_dance() -> Result<gcp_auth::Token, Error> {
+//     use gcp_auth::{AuthenticationManager, CustomServiceAccount};
 
-    // `credentials_path` variable is the path for the credentials `.json` file.
-    let credentials_path =
-        PathBuf::from("/Users/benjaminfry/Downloads/switrs-courier-7a44636842ba.json");
-    let service_account = CustomServiceAccount::from_file(credentials_path)?;
-    let authentication_manager = AuthenticationManager::from(service_account);
-    let scopes = &["https://www.googleapis.com/auth/gmail.readonly"];
-    let token = authentication_manager.get_token(scopes).await?;
+//     // `credentials_path` variable is the path for the credentials `.json` file.
+//     let credentials_path =
+//         PathBuf::from("/Users/benjaminfry/Downloads/switrs-courier-7a44636842ba.json");
+//     let service_account = CustomServiceAccount::from_file(credentials_path)?;
+//     let authentication_manager = AuthenticationManager::from(service_account);
+//     let scopes = &["https://www.googleapis.com/auth/gmail.readonly"];
+//     let token = authentication_manager.get_token(scopes).await?;
 
-    println!("token: {token:?}");
+//     println!("token: {token:?}");
 
-    Ok(token)
-}
+//     Ok(token)
+// }

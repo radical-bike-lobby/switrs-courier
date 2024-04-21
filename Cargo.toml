@@ -23,15 +23,17 @@ path = "src/main.rs"
 [dependencies]
 anyhow = "1.0.80"
 clap = { version = "4.4.11", features = ["cargo", "derive", "env"] }
-gcp_auth = "0.10.0"
+gcp_auth = "0.11.1"
 google-gmail1 = "5.0.3"
 humantime = "2.1.0"
 humantime-serde = "1.1.1"
 mailparse = "0.14.1"
 oauth2 = { version = "4.4.2", features = ["reqwest"] }
 regex = "1.10.3"
-reqwest = { version = "0.11", features = [
+reqwest = { version = "0.11.24", features = [
     "blocking",
+    "cookies",
+    "trust-dns",
     "json",
     "brotli",
     "deflate",
