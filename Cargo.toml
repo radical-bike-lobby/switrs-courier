@@ -22,13 +22,10 @@ path = "src/main.rs"
 
 [dependencies]
 anyhow = "1.0.80"
+ckanaction = "0.1.1"
 clap = { version = "4.4.11", features = ["cargo", "derive", "env"] }
-gcp_auth = "0.11.1"
-google-gmail1 = "5.0.3"
 humantime = "2.1.0"
 humantime-serde = "1.1.1"
-mailparse = "0.14.1"
-oauth2 = { version = "4.4.2", features = ["reqwest"] }
 regex = "1.10.3"
 reqwest = { version = "0.11.24", features = [
     "blocking",
@@ -42,7 +39,7 @@ reqwest = { version = "0.11.24", features = [
 ] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-time = "0.3"
+time = { version = "0.3", features = ["serde", "serde-human-readable"] }
 thiserror = "1.0.50"
 tokio = { version = "1.36.0", features = ["macros", "rt", "time"] }
 url = "=2.5.0"

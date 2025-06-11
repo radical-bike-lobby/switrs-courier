@@ -6,11 +6,8 @@ use std::error::Error as StdError;
 
 use clap::Parser;
 
-use switrs_courier::{
-    gmail,
-    iswitrs::{self, IswitrsLogin},
-    Error,
-};
+use ckanaction::CKAN;
+use switrs_courier::{calodp, Error};
 
 const I_SWITRS: &str = "https://iswitrs.chp.ca.gov/Reports/jsp/CollisionReports.jsp";
 const TERMS_OF_SERVICE: &str = include_str!("../SWITRS-TERMS-OF-USE.txt");
@@ -19,22 +16,21 @@ const CPRA_ADVISEMENT: &str = include_str!("../CPRA-ADVISEMENT.txt");
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
-    /// GMail client secret
-    #[arg(
-        short = 't',
-        env = "SWITRS_GMAIL_CLIENT_SECRET",
-        hide_env_values = true
-    )]
-    gmail_client_token: String,
+    // /// GMail client secret
+    // #[arg(
+    //     short = 't',
+    //     env = "SWITRS_GMAIL_CLIENT_SECRET",
+    //     hide_env_values = true
+    // )]
+    // gmail_client_token: String,
 
-    /// Username for the iswitrs site
-    #[arg(short = 'u', env = "ISWITRS_USERNAME")]
-    iswitrs_username: String,
+    // /// Username for the iswitrs site
+    // #[arg(short = 'u', env = "ISWITRS_USERNAME")]
+    // iswitrs_username: String,
 
-    /// Password for the iswitrs site
-    #[arg(short = 'p', env = "ISWITRS_PASSWORD", hide_env_values = true)]
-    iswitrs_password: String,
-
+    // /// Password for the iswitrs site
+    // #[arg(short = 'p', env = "ISWITRS_PASSWORD", hide_env_values = true)]
+    // iswitrs_password: String,
     /// Print the terms of service from I-SWITRS
     #[arg(long)]
     terms_of_service: bool,
@@ -60,21 +56,25 @@ async fn main() -> Result<(), Box<dyn StdError>> {
         return Ok(());
     }
 
-    iswitrs(&args.iswitrs_username, &args.iswitrs_password).await?;
+    //    iswitrs(&args.iswitrs_username, &args.iswitrs_password).await?;
     //    gmail(&args.gmail_client_token).await;
+
+    let conn = calodp::connect();
+
+    calodp::list_ccrs(&conn).await?;
 
     Ok(())
 }
 
 async fn gmail(client_secret: &str) {
-    gmail::fetch(client_secret).await;
+    //gmail::fetch(client_secret).await;
 }
 
 async fn iswitrs(iswitrs_username: &str, iswitrs_password: &str) -> Result<(), Box<dyn StdError>> {
-    let client = iswitrs::client().build()?;
-    let login = IswitrsLogin::new(iswitrs_username.to_string(), iswitrs_password.to_string());
+    // let client = iswitrs::client().build()?;
+    // let login = IswitrsLogin::new(iswitrs_username.to_string(), iswitrs_password.to_string());
 
-    login.login(&client).await?;
+    // login.login(&client).await?;
 
     Ok(())
 }
