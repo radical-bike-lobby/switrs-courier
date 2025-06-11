@@ -20,9 +20,28 @@ pub enum Error {
 
     /// Dynamic Error
     #[error("dyn error: {0}")]
-    Dyn(#[from] Box<dyn core::error::Error>),
+    Dyn(#[from] Box<dyn core::error::Error + Send + Sync>),
+
+    /// CKAN Error
+    #[error("ckan error: {0}")]
+    CkanError(String),
+
+    /// HTTP Error
+    #[error("http error: {0}")]
+    HttpError(String),
+
+    /// IO Error
+    #[error("io error: {0}")]
+    Io(#[from] std::io::Error),
 
     /// Serde Error
     #[error("serde_json error: {0}")]
     SerdeJson(#[from] serde_json::Error),
+}
+
+#[test]
+fn test_send_sync() {
+    fn is_send_sync<T: Send + Sync>() {}
+
+    is_send_sync::<Error>();
 }

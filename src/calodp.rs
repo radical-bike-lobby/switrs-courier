@@ -1,6 +1,6 @@
 use std::time::SystemTime;
 
-use ckanaction::{CKANBuilder, CKAN};
+use ckanaction::CKAN;
 use serde::Deserialize;
 
 use crate::Error;
@@ -91,56 +91,90 @@ pub struct Package {
 }
 
 #[derive(Deserialize)]
-struct Resource {
+pub struct Resource {
     //             "cache_last_updated": null,
     //             "cache_url": null,
     //             "created": "2024-10-03T17:13:21.055497",
     #[serde(with = "humantime_serde")]
-    created: SystemTime,
+    pub created: SystemTime,
     //             "datastore_active": false,
-    datastore_active: bool,
+    pub datastore_active: bool,
     //             "datastore_contains_all_records_of_source_file": false,
-    datastore_contains_all_records_of_source_file: bool,
+    pub datastore_contains_all_records_of_source_file: bool,
     //             "description": "Short description of all data fields in the raw data files.",
-    description: String,
+    pub description: String,
     //             "format": "DOCX",
-    format: String,
+    pub format: String,
     //             "hash": "",
     //             "id": "1ec4c13e-b5b6-47df-b794-5107d4eb39ac",
-    id: String,
+    pub id: String,
     //             "last_modified": "2025-04-04T15:57:03.571269",
     #[serde(with = "humantime_serde")]
-    last_modified: SystemTime,
+    pub last_modified: SystemTime,
     //             "metadata_modified": "2025-04-04T16:02:57.227659",
     #[serde(with = "humantime_serde")]
-    metadata_modified: SystemTime,
+    pub metadata_modified: SystemTime,
     //             "mimetype": null,
     //             "mimetype_inner": null,
     //             "name": "Raw Data Template",
-    name: String,
+    pub name: String,
     //             "package_id": "80c6a49d-c6b3-40ba-86d8-379c9741b4be",
-    package_id: String,
+    pub package_id: String,
     //             "position": 0,
     //             "resource_type": null,
     //             "size": 44102,
-    size: Option<usize>,
+    pub size: Option<usize>,
     //             "state": "active",
-    state: String,
+    pub state: String,
     //             "url": "https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/1ec4c13e-b5b6-47df-b794-5107d4eb39ac/download/rawdata_template.docx",
-    url: String,
+    pub url: String,
     //             "url_type": "upload"
-    url_type: String,
+    pub url_type: String,
 }
 
-pub fn connect() -> CKAN {
-    CKAN::builder().url("https://data.ca.gov").build()
+/// The Ccrs implementation for fetching data related to the Ccrs
+pub struct Ccrs(CKAN);
+
+impl Ccrs {
+    /// Construct a new implementation CCRS
+    pub fn new() -> Self {
+        Self(CKAN::builder().url("https://data.ca.gov").build())
+    }
+
+    /// Fetch the CCRS package from CKAN
+    pub async fn fetch_ccrs(&self) -> Result<Package, Error> {
+        let response = self
+            .0
+            .package_search()
+            .q("ccrs".to_string())
+            .call()
+            .await
+            .map_err(|e| Error::CkanError(e.to_string()))?;
+        //println!("{response:#}");
+        let response = serde_json::from_value::<PackageResponse>(response)?;
+
+        if !response.success {
+            return Err(Error::CkanError(format!("request was not successful")));
+        }
+
+        response
+            .result
+            .results
+            .into_iter()
+            .find(|p| p.name == "ccrs")
+            .ok_or(Error::CkanError(format!("no ccrs package in response")))
+    }
 }
 
-pub async fn list_ccrs(ckan: &CKAN) -> Result<(), Error> {
-    let response = ckan.package_search().q("ccrs".to_string()).call().await?;
-    println!("{response:#}");
+impl Package {
+    /// Lists the resources associated with the CCRS package
+    pub fn resources(&self) -> Result<&[Resource], Error> {
+        for resource in &self.resources {
+            println!("resource name: {}, {}", resource.name, resource.url);
+        }
 
-    Ok(())
+        Ok(&self.resources)
+    }
 }
 
 #[cfg(test)]
