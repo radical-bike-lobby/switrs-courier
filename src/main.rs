@@ -15,7 +15,7 @@ use clap::Parser;
 
 use reqwest::redirect::Policy;
 use switrs_courier::{
-    calodp::{self, Ccrs, Resource},
+    calodp::{Ccrs, Resource},
     Error,
 };
 

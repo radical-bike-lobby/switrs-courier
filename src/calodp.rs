@@ -1,3 +1,5 @@
+//! California Open Data Portal API Client
+
 use std::time::SystemTime;
 
 use ckanaction::CKAN;
@@ -5,6 +7,8 @@ use serde::Deserialize;
 
 use crate::Error;
 
+/// Response to a package search request.
+#[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct PackageResponse {
     help: String,
@@ -12,6 +16,8 @@ pub struct PackageResponse {
     result: PackageResult,
 }
 
+/// The result associated with a package search request.
+#[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct PackageResult {
     count: usize,
@@ -19,12 +25,16 @@ pub struct PackageResult {
     results: Vec<Package>,
 }
 
+/// The package associated with a package search request.
+#[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct Package {
     //         "accessLevel": "public",
-    accessLevel: String,
+    #[serde(rename = "accessLevel")]
+    access_level: String,
     //         "accrualPeriodicity": "R/P1D",
-    accrualPeriodicity: String,
+    #[serde(rename = "accrualPeriodicity")]
+    accrual_periodicity: String,
     //         "additional_information": "",
     //         "author": "California Highway Patrol",
     author: String,
@@ -46,7 +56,8 @@ pub struct Package {
     //         "isopen": true,
     isopen: bool,
     //         "landingPage": "https://www.chp.ca.gov/",
-    landingPage: String,
+    #[serde(rename = "landingPage")]
+    landing_page: String,
     //         "language": "",
     //         "license_id": "other-pd",
     license_id: String,
@@ -90,6 +101,8 @@ pub struct Package {
     resources: Vec<Resource>,
 }
 
+/// The resource associated with a package search request.
+#[allow(dead_code, missing_docs)]
 #[derive(Deserialize)]
 pub struct Resource {
     //             "cache_last_updated": null,
@@ -169,10 +182,6 @@ impl Ccrs {
 impl Package {
     /// Lists the resources associated with the CCRS package
     pub fn resources(&self) -> Result<&[Resource], Error> {
-        for resource in &self.resources {
-            println!("resource name: {}, {}", resource.name, resource.url);
-        }
-
         Ok(&self.resources)
     }
 }

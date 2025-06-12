@@ -1,4 +1,4 @@
-//! Error types from the Telraam API
+//! All Error types from this crate
 
 use thiserror::Error;
 
